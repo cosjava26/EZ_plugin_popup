@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta charset='utf-8'>
+    <title>EZprice找便宜 - 懶人比價神器</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+    <script src='./style/js/EZext-popup.js'></script>
+    <script src='./style/js/sweetalert2.min.js'></script>
+    <link href='./style/css/EZext-popup.css' rel='stylesheet' type='text/css'>
+    <link href='./style/css/sweetalert2.min.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class='Main'>
+      <div class='navbar'>
+        <form action='' class='navbar-form'>
+          <a class='ez-logo' href='https://ezprice.com.tw/' target='_blank'></a>
+          <input class='navbar-input' placeholder='輸入您想比價的商品或型號' type='text'>
+          <button class='navbar-btn icon icon-search' type='button'></button>
+        </form>
+        <div class='tabs-area'>
+          <ul class='tabs'>
+            <li class='active' rel='tab1'>
+              <span>全部商品</span>
+            </li>
+            <li class='ringing-pd' rel='tab2'>
+              <span class='icon icon-bell-ring'>已到價</span>
+            </li>
+            <li class='notringing-pd' rel='tab3'>
+              <span class='icon icon-bell-filled'>未到價</span>
+            </li>
+            <li class='love-pd' rel='tab4'>
+              <span class='icon icon-heart-filled'>收藏</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class='tabs-content'>
+        <div class='tabs-item all-pd ringing-pd-area' id='tab1'>
+          <!-- /全部商品empty state的顯示 -->
+          <div class='empty-state'>
+            <span class='empty-img'>
+              <img src='style/images/empty-folder.png'>
+            </span>
+            <span class='empty-text'>清單內沒有商品，好桑心～</span>
+          </div>
+          <!-- /無庫存/下架的顯示 -->
+          <div class='ringing-pd'>
+            <div class='wrap'>
+              <div class='face front'>
+                <div class='notice-switch'>
+                  <input checked='checked' id='switch-id1' type='checkbox'>
+                  <label class='label-switch' for='switch-id1'></label>
+                </div>
+                <div class='pd-img'>
+                  <img src='style/images/pd-img.jpg'>
+                </div>
+                <a class='flip icon icon-edit'></a>
+                <a class='icon icon-delete'></a>
+                <a class='pd-info' href=''>
+                  <span class='pd-name'>APPLE iPhone 7 Plus 32G智慧型手機</span>
+                  <span class='platform-price'>
+                    <span class='platform-name'>FriDay購物</span>
+                    <span class='pd-price'>31,900</span>
+                  </span>
+                  <span class='expect-price'>
+                    期望入手價
+                    <span class='user-price'>28,900</span>
+                  </span>
+                </a>
+                <a class='ringing-info icon icon-bell-ring' href=''>
+                  <span class='info-platform'>pchome線上購物中心</span>
+                  <span class='info-price'>25,000</span>
+                  到價了！
+                  <span class='info-linkout icon icon-linkout'>
+                    立即前往
+                  </span>
+                </a>
+              </div>
+              <div class='face back'>
+                <div class='price-setting'>
+                  <span class='current-price'>目前價格</span>
+                  <span class='current-price-num'>31,900</span>
+                  <span class='expect-price'>期望價格</span>
+                  <span class='input-price'>
+                    <input class='input-price-num' type='text' value='31,899'>
+                    <span class='note-word'>請輸入期望價格</span>
+                    <span class='error-word'>設定價格請低於目前價格</span>
+                  </span>
+                  <button class='btn-disount'>-</button>
+                  <span class='discount-area'>自訂</span>
+                  <button class='btn-disount disabled'>+</button>
+                </div>
+                <div class='notice-setting'>
+                  <span class='notice-text'>提醒方式</span>
+                  <span class='email-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>email</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-email' placeholder='請輸入您的email' type='text'>
+                    <span class='error-word'>email格式不正確</span>
+                  </span>
+                  <span class='phone-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>簡訊</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-phone' placeholder='請輸入您的手機號碼' type='text'>
+                    <span class='error-word'>手機格式不正確</span>
+                  </span>
+                </div>
+                <button class='flipback btn-saved disabled'>儲存</button>
+              </div>
+              <div class='pd-nosold'>
+                <img class='nosold-img' src='style/images/empty-box.png'>
+                <span class='nosold-text'>
+                  此商品
+                </span>
+                <span class='platform-name'>pchome商店街</span>
+                <span class='nosold-text'>
+                  已下架，是否改追蹤其他店家？
+                </span>
+                <a class='icon icon-arrow btn-follow' href=''>立即追蹤</a>
+                <a class='icon icon-delete'></a>
+              </div>
+            </div>
+          </div>
+          <div class='ringing-pd'>
+            <div class='wrap'>
+              <div class='face front'>
+                <div class='notice-switch'>
+                  <input checked='checked' id='switch-id1' type='checkbox'>
+                  <label class='label-switch' for='switch-id1'></label>
+                </div>
+                <div class='pd-img'>
+                  <img src='style/images/pd-img.jpg'>
+                </div>
+                <a class='flip icon icon-edit'></a>
+                <a class='icon icon-delete'></a>
+                <a class='pd-info' href=''>
+                  <span class='pd-name'>APPLE iPhone 7 Plus 32G智慧型手機</span>
+                  <span class='platform-price'>
+                    <span class='platform-name'>FriDay購物</span>
+                    <span class='pd-price'>31,900</span>
+                  </span>
+                  <span class='expect-price'>
+                    期望入手價
+                    <span class='user-price'>28,900</span>
+                  </span>
+                </a>
+                <a class='ringing-info icon icon-bell-ring' href=''>
+                  <span class='info-platform'>pchome線上購物中心</span>
+                  <span class='info-price'>25,000</span>
+                  到價了！
+                  <span class='info-linkout icon icon-linkout'>
+                    立即前往
+                  </span>
+                </a>
+              </div>
+              <div class='face back'>
+                <div class='price-setting'>
+                  <span class='current-price'>目前價格</span>
+                  <span class='current-price-num'>31,900</span>
+                  <span class='expect-price'>期望價格</span>
+                  <span class='input-price'>
+                    <input class='input-price-num' type='text' value='31,899'>
+                    <span class='note-word'>請輸入期望價格</span>
+                    <span class='error-word'>設定價格請低於目前價格</span>
+                  </span>
+                  <button class='btn-disount'>-</button>
+                  <span class='discount-area'>自訂</span>
+                  <button class='btn-disount disabled'>+</button>
+                </div>
+                <div class='notice-setting'>
+                  <span class='notice-text'>提醒方式</span>
+                  <span class='email-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>email</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-email' placeholder='請輸入您的email' type='text'>
+                    <span class='error-word'>email格式不正確</span>
+                  </span>
+                  <span class='phone-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>簡訊</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-phone' placeholder='請輸入您的手機號碼' type='text'>
+                    <span class='error-word'>手機格式不正確</span>
+                  </span>
+                </div>
+                <button class='flipback btn-saved disabled'>儲存</button>
+              </div>
+              <div class='pd-nosold'>
+                <img class='nosold-img' src='style/images/empty-box.png'>
+                <span class='nosold-text'>
+                  此商品
+                </span>
+                <span class='platform-name'>pchome商店街</span>
+                <span class='nosold-text'>
+                  已下架，搜尋同商品最便宜店家？
+                </span>
+                <a class='icon icon-arrow btn-follow' href=''>立即搜尋</a>
+                <a class='icon icon-delete'></a>
+              </div>
+            </div>
+          </div>
+          <!-- /沒有在任何平台賣的顯示 -->
+          <div class='ringing-pd'>
+            <div class='wrap'>
+              <div class='face front'>
+                <div class='notice-switch'>
+                  <input checked='checked' id='switch-id2' type='checkbox'>
+                  <label class='label-switch' for='switch-id2'></label>
+                </div>
+                <div class='pd-img'>
+                  <img src='style/images/pd-img.jpg'>
+                </div>
+                <a class='flip icon icon-edit'></a>
+                <a class='icon icon-delete'></a>
+                <a class='pd-info' href=''>
+                  <span class='pd-name'>APPLE iPhone 7 Plus 32G智慧型手機</span>
+                  <span class='platform-price'>
+                    <span class='platform-name'>FriDay購物</span>
+                    <span class='pd-price'>31,900</span>
+                  </span>
+                  <span class='expect-price'>
+                    期望入手價
+                    <span class='user-price'>28,900</span>
+                  </span>
+                </a>
+                <a class='ringing-info icon icon-bell-ring' href=''>
+                  <span class='info-platform'>pchome線上購物中心</span>
+                  <span class='info-price'>25,000</span>
+                  到價了！
+                  <span class='info-linkout icon icon-linkout'>
+                    立即前往
+                  </span>
+                </a>
+              </div>
+              <div class='face back'>
+                <div class='price-setting'>
+                  <span class='current-price'>目前價格</span>
+                  <span class='current-price-num'>31,900</span>
+                  <span class='expect-price'>期望價格</span>
+                  <span class='input-price'>
+                    <input class='input-price-num' type='text' value='31,899'>
+                    <span class='note-word'>請輸入期望價格</span>
+                    <span class='error-word'>設定價格請低於目前價格</span>
+                  </span>
+                  <button class='btn-disount'>-</button>
+                  <span class='discount-area'>自訂</span>
+                  <button class='btn-disount disabled'>+</button>
+                </div>
+                <div class='notice-setting'>
+                  <span class='notice-text'>提醒方式</span>
+                  <span class='email-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>email</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-email' placeholder='請輸入您的email' type='text'>
+                    <span class='error-word'>email格式不正確</span>
+                  </span>
+                  <span class='phone-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>簡訊</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-phone' placeholder='請輸入您的手機號碼' type='text'>
+                    <span class='error-word'>手機格式不正確</span>
+                  </span>
+                </div>
+                <button class='flipback btn-saved disabled'>儲存</button>
+              </div>
+              <div class='pd-nosold'>
+                <img class='nosold-img' src='style/images/empty-box.png'>
+                <span class='nosold-text'>
+                  此商品在所有店家皆已下架，找找其他相關商品？
+                </span>
+                <a class='icon icon-delete'></a>
+              </div>
+            </div>
+          </div>
+          <!-- /已到價商品的顯示 -->
+          <div class='ringing-pd'>
+            <div class='wrap'>
+              <div class='face front'>
+                <div class='notice-switch'>
+                  <input checked='checked' id='switch-id12' type='checkbox'>
+                  <label class='label-switch' for='switch-id12'></label>
+                </div>
+                <div class='pd-img'>
+                  <img src='style/images/pd-img.jpg'>
+                </div>
+                <a class='flip icon icon-edit'></a>
+                <a class='icon icon-delete'></a>
+                <a class='pd-info' href=''>
+                  <span class='pd-name'>APPLE iPhone 7 Plus 32G智慧型手機</span>
+                  <span class='platform-price'>
+                    <span class='platform-name'>FriDay購物</span>
+                    <span class='pd-price'>31,900</span>
+                  </span>
+                  <span class='expect-price'>
+                    期望入手價
+                    <span class='user-price'>28,900</span>
+                  </span>
+                </a>
+                <a class='ringing-info icon icon-bell-ring' href=''>
+                  <span class='info-platform'>pchome線上購物中心</span>
+                  <span class='info-price'>25,000</span>
+                  到價了！
+                  <span class='info-linkout icon icon-linkout'>
+                    立即前往
+                  </span>
+                </a>
+              </div>
+              <div class='face back'>
+                <div class='price-setting'>
+                  <span class='current-price'>目前價格</span>
+                  <span class='current-price-num'>31,900</span>
+                  <span class='expect-price'>期望價格</span>
+                  <span class='input-price'>
+                    <input class='input-price-num' type='text' value='31,899'>
+                    <span class='note-word'>請輸入期望價格</span>
+                    <span class='error-word'>設定價格請低於目前價格</span>
+                  </span>
+                  <button class='btn-disount'>-</button>
+                  <span class='discount-area'>自訂</span>
+                  <button class='btn-disount disabled'>+</button>
+                </div>
+                <div class='notice-setting'>
+                  <span class='notice-text'>提醒方式</span>
+                  <span class='email-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>email</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-email' placeholder='請輸入您的email' type='text'>
+                    <span class='error-word'>email格式不正確</span>
+                  </span>
+                  <span class='phone-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>簡訊</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-phone' placeholder='請輸入您的手機號碼' type='text'>
+                    <span class='error-word'>手機格式不正確</span>
+                  </span>
+                </div>
+                <button class='flipback btn-saved disabled'>儲存</button>
+              </div>
+            </div>
+          </div>
+          <!-- /未到價商品的顯示 -->
+          <div class='ringing-pd'>
+            <div class='wrap'>
+              <div class='face front'>
+                <div class='notice-switch'>
+                  <input checked='checked' id='switch-id6' type='checkbox'>
+                  <label class='label-switch' for='switch-id6'></label>
+                </div>
+                <div class='pd-img'>
+                  <img src='style/images/pd-img.jpg'>
+                </div>
+                <a class='flip icon icon-edit'></a>
+                <a class='icon icon-delete'></a>
+                <a class='pd-info' href=''>
+                  <span class='pd-name'>APPLE iPhone 7 Plus 32G智慧型手機</span>
+                  <span class='platform-price'>
+                    <span class='platform-name'>FriDay購物</span>
+                    <span class='pd-price'>31,900</span>
+                  </span>
+                  <span class='expect-price'>
+                    期望入手價
+                    <span class='user-price'>28,900</span>
+                  </span>
+                </a>
+                <a class='ringing-info icon icon-bell-filled' href=''>
+                  <span class='info-text'>距離期望價格還差</span>
+                  <span class='info-price'>3,000</span>
+                  <span class='info-text'>加油～好嗎?!</span>
+                </a>
+              </div>
+              <div class='face back'>
+                <div class='price-setting'>
+                  <span class='current-price'>目前價格</span>
+                  <span class='current-price-num'>31,900</span>
+                  <span class='expect-price'>期望價格</span>
+                  <span class='input-price'>
+                    <input class='input-price-num' type='text' value='31,899'>
+                    <span class='note-word'>請輸入期望價格</span>
+                    <span class='error-word'>設定價格請低於目前價格</span>
+                  </span>
+                  <button class='btn-disount'>-</button>
+                  <span class='discount-area'>自訂</span>
+                  <button class='btn-disount disabled'>+</button>
+                </div>
+                <div class='notice-setting'>
+                  <span class='notice-text'>提醒方式</span>
+                  <span class='email-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>email</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-email' placeholder='請輸入您的email' type='text'>
+                    <span class='error-word'>email格式不正確</span>
+                  </span>
+                  <span class='phone-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>簡訊</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-phone' placeholder='請輸入您的手機號碼' type='text'>
+                    <span class='error-word'>手機格式不正確</span>
+                  </span>
+                </div>
+                <button class='flipback btn-saved disabled'>儲存</button>
+              </div>
+            </div>
+          </div>
+          <!-- /收藏商品的顯示 -->
+          <div class='ringing-pd'>
+            <div class='wrap'>
+              <div class='face front'>
+                <div class='notice-switch'>
+                  <input id='switch-id8' type='checkbox'>
+                  <label class='label-switch' for='switch-id8'></label>
+                </div>
+                <div class='pd-img'>
+                  <img src='style/images/pd-img.jpg'>
+                </div>
+                <a class='icon icon-delete'></a>
+                <a class='pd-info' href=''>
+                  <span class='pd-name'>APPLE iPhone 7 Plus 32G智慧型手機</span>
+                  <span class='platform-price'>
+                    <span class='platform-name'>FriDay購物</span>
+                    <span class='pd-price'>31,900</span>
+                  </span>
+                </a>
+                <a class='ringing-info icon icon-bell-line' href=''>
+                  <span class='info-text'>尚未設定降價提醒</span>
+                </a>
+              </div>
+              <div class='face back'>
+                <div class='price-setting'>
+                  <span class='current-price'>目前價格</span>
+                  <span class='current-price-num'>31,900</span>
+                  <span class='expect-price'>期望價格</span>
+                  <span class='input-price'>
+                    <input class='input-price-num' type='text' value='31,899'>
+                    <span class='note-word'>請輸入期望價格</span>
+                    <span class='error-word'>設定價格請低於目前價格</span>
+                  </span>
+                  <button class='btn-disount'>-</button>
+                  <span class='discount-area'>自訂</span>
+                  <button class='btn-disount disabled'>+</button>
+                </div>
+                <div class='notice-setting'>
+                  <span class='notice-text'>提醒方式</span>
+                  <span class='email-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>email</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-email' placeholder='請輸入您的email' type='text'>
+                    <span class='error-word'>email格式不正確</span>
+                  </span>
+                  <span class='phone-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>簡訊</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-phone' placeholder='請輸入您的手機號碼' type='text'>
+                    <span class='error-word'>手機格式不正確</span>
+                  </span>
+                </div>
+                <button class='flipback btn-saved disabled'>儲存</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='tabs-item ringing-pd-area' id='tab2'>
+          <!-- /已到價商品empty state的顯示 -->
+          <div class='empty-state'>
+            <span class='empty-img'>
+              <img src='style/images/empty-ringing.png'>
+            </span>
+            <span class='empty-text'>還沒有商品到價，我們再等等</span>
+          </div>
+          <!-- /已到價商品無庫存/下架的顯示 -->
+          <div class='ringing-pd'>
+            <div class='wrap'>
+              <div class='face front'>
+                <div class='notice-switch'>
+                  <input checked='checked' id='switch-id1' type='checkbox'>
+                  <label class='label-switch' for='switch-id1'></label>
+                </div>
+                <div class='pd-img'>
+                  <img src='style/images/pd-img.jpg'>
+                </div>
+                <a class='flip icon icon-edit'></a>
+                <a class='icon icon-delete'></a>
+                <a class='pd-info' href=''>
+                  <span class='pd-name'>APPLE iPhone 7 Plus 32G智慧型手機</span>
+                  <span class='platform-price'>
+                    <span class='platform-name'>FriDay購物</span>
+                    <span class='pd-price'>31,900</span>
+                  </span>
+                  <span class='expect-price'>
+                    期望入手價
+                    <span class='user-price'>28,900</span>
+                  </span>
+                </a>
+                <a class='ringing-info icon icon-bell-ring' href=''>
+                  <span class='info-platform'>pchome線上購物中心</span>
+                  <span class='info-price'>25,000</span>
+                  到價了！
+                  <span class='info-linkout icon icon-linkout'>
+                    立即前往
+                  </span>
+                </a>
+              </div>
+              <div class='face back'>
+                <div class='price-setting'>
+                  <span class='current-price'>目前價格</span>
+                  <span class='current-price-num'>31,900</span>
+                  <span class='expect-price'>期望價格</span>
+                  <span class='input-price'>
+                    <input class='input-price-num' type='text' value='31,899'>
+                    <span class='note-word'>請輸入期望價格</span>
+                    <span class='error-word'>設定價格請低於目前價格</span>
+                  </span>
+                  <button class='btn-disount'>-</button>
+                  <span class='discount-area'>自訂</span>
+                  <button class='btn-disount disabled'>+</button>
+                </div>
+                <div class='notice-setting'>
+                  <span class='notice-text'>提醒方式</span>
+                  <span class='email-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>email</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-email' placeholder='請輸入您的email' type='text'>
+                    <span class='error-word'>email格式不正確</span>
+                  </span>
+                  <span class='phone-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>簡訊</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-phone' placeholder='請輸入您的手機號碼' type='text'>
+                    <span class='error-word'>手機格式不正確</span>
+                  </span>
+                </div>
+                <button class='flipback btn-saved disabled'>儲存</button>
+              </div>
+              <div class='pd-nosold'>
+                <img class='nosold-img' src='style/images/empty-box.png'>
+                <span class='nosold-text'>
+                  此商品
+                </span>
+                <span class='platform-name'>pchome商店街</span>
+                <span class='nosold-text'>
+                  已下架，是否改追蹤其他店家？
+                </span>
+                <a class='icon icon-arrow btn-follow' href=''>立即追蹤</a>
+                <a class='icon icon-delete'></a>
+              </div>
+            </div>
+          </div>
+          <!-- /已到價商品沒有在任何平台賣的顯示 -->
+          <div class='ringing-pd'>
+            <div class='wrap'>
+              <div class='face front'>
+                <div class='notice-switch'>
+                  <input checked='checked' id='switch-id2' type='checkbox'>
+                  <label class='label-switch' for='switch-id2'></label>
+                </div>
+                <div class='pd-img'>
+                  <img src='style/images/pd-img.jpg'>
+                </div>
+                <a class='flip icon icon-edit'></a>
+                <a class='icon icon-delete'></a>
+                <a class='pd-info' href=''>
+                  <span class='pd-name'>APPLE iPhone 7 Plus 32G智慧型手機</span>
+                  <span class='platform-price'>
+                    <span class='platform-name'>FriDay購物</span>
+                    <span class='pd-price'>31,900</span>
+                  </span>
+                  <span class='expect-price'>
+                    期望入手價
+                    <span class='user-price'>28,900</span>
+                  </span>
+                </a>
+                <a class='ringing-info icon icon-bell-ring' href=''>
+                  <span class='info-platform'>pchome線上購物中心</span>
+                  <span class='info-price'>25,000</span>
+                  到價了！
+                  <span class='info-linkout icon icon-linkout'>
+                    立即前往
+                  </span>
+                </a>
+              </div>
+              <div class='face back'>
+                <div class='price-setting'>
+                  <span class='current-price'>目前價格</span>
+                  <span class='current-price-num'>31,900</span>
+                  <span class='expect-price'>期望價格</span>
+                  <span class='input-price'>
+                    <input class='input-price-num' type='text' value='31,899'>
+                    <span class='note-word'>請輸入期望價格</span>
+                    <span class='error-word'>設定價格請低於目前價格</span>
+                  </span>
+                  <button class='btn-disount'>-</button>
+                  <span class='discount-area'>自訂</span>
+                  <button class='btn-disount disabled'>+</button>
+                </div>
+                <div class='notice-setting'>
+                  <span class='notice-text'>提醒方式</span>
+                  <span class='email-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>email</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-email' placeholder='請輸入您的email' type='text'>
+                    <span class='error-word'>email格式不正確</span>
+                  </span>
+                  <span class='phone-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>簡訊</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-phone' placeholder='請輸入您的手機號碼' type='text'>
+                    <span class='error-word'>手機格式不正確</span>
+                  </span>
+                </div>
+                <button class='flipback btn-saved disabled'>儲存</button>
+              </div>
+              <div class='pd-nosold'>
+                <img class='nosold-img' src='style/images/empty-box.png'>
+                <span class='nosold-text'>
+                  此商品在所有店家皆已下架，找找其他相關商品？
+                </span>
+                <a class='icon icon-delete'></a>
+              </div>
+            </div>
+          </div>
+          <!-- /已到價商品的顯示 -->
+          <div class='ringing-pd'>
+            <div class='wrap'>
+              <div class='face front'>
+                <div class='notice-switch'>
+                  <input checked='checked' id='switch-id3' type='checkbox'>
+                  <label class='label-switch' for='switch-id3'></label>
+                </div>
+                <div class='pd-img'>
+                  <img src='style/images/pd-img.jpg'>
+                </div>
+                <a class='flip icon icon-edit'></a>
+                <a class='icon icon-delete'></a>
+                <a class='pd-info' href=''>
+                  <span class='pd-name'>APPLE iPhone 7 Plus 32G智慧型手機</span>
+                  <span class='platform-price'>
+                    <span class='platform-name'>FriDay購物</span>
+                    <span class='pd-price'>31,900</span>
+                  </span>
+                  <span class='expect-price'>
+                    期望入手價
+                    <span class='user-price'>28,900</span>
+                  </span>
+                </a>
+                <a class='ringing-info icon icon-bell-ring' href=''>
+                  <span class='info-platform'>pchome線上購物中心</span>
+                  <span class='info-price'>25,000</span>
+                  到價了！
+                  <span class='info-linkout icon icon-linkout'>
+                    立即前往
+                  </span>
+                </a>
+              </div>
+              <div class='face back'>
+                <div class='price-setting'>
+                  <span class='current-price'>目前價格</span>
+                  <span class='current-price-num'>31,900</span>
+                  <span class='expect-price'>期望價格</span>
+                  <span class='input-price'>
+                    <input class='input-price-num' type='text' value='31,899'>
+                    <span class='note-word'>請輸入期望價格</span>
+                    <span class='error-word'>設定價格請低於目前價格</span>
+                  </span>
+                  <button class='btn-disount'>-</button>
+                  <span class='discount-area'>自訂</span>
+                  <button class='btn-disount disabled'>+</button>
+                </div>
+                <div class='notice-setting'>
+                  <span class='notice-text'>提醒方式</span>
+                  <span class='email-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>email</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-email' placeholder='請輸入您的email' type='text'>
+                    <span class='error-word'>email格式不正確</span>
+                  </span>
+                  <span class='phone-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>簡訊</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-phone' placeholder='請輸入您的手機號碼' type='text'>
+                    <span class='error-word'>手機格式不正確</span>
+                  </span>
+                </div>
+                <button class='flipback btn-saved disabled'>儲存</button>
+              </div>
+            </div>
+          </div>
+          <div class='ringing-pd'>
+            <div class='wrap'>
+              <div class='face front'>
+                <div class='notice-switch'>
+                  <input checked='checked' id='switch-id4' type='checkbox'>
+                  <label class='label-switch' for='switch-id4'></label>
+                </div>
+                <div class='pd-img'>
+                  <img src='style/images/pd-img2.jpg'>
+                </div>
+                <a class='flip icon icon-edit'></a>
+                <a class='icon icon-delete'></a>
+                <a class='pd-info' href=''>
+                  <span class='pd-name'>New Balance 休閒鞋 373 運動 女鞋</span>
+                  <span class='platform-price'>
+                    <span class='platform-name'>Yahoo奇摩購物中心</span>
+                    <span class='pd-price'>2,780</span>
+                  </span>
+                  <span class='expect-price'>
+                    期望入手價
+                    <span class='user-price'>2,000</span>
+                  </span>
+                </a>
+                <a class='ringing-info icon icon-bell-ring' href=''>
+                  <span class='info-platform'>momo富邦購物館</span>
+                  <span class='info-price'>2,000</span>
+                  到價了！
+                  <span class='info-linkout icon icon-linkout'>
+                    立即前往
+                  </span>
+                </a>
+              </div>
+              <div class='face back'>
+                <div class='price-setting'>
+                  <span class='current-price'>目前價格</span>
+                  <span class='current-price-num'>31,900</span>
+                  <span class='expect-price'>期望價格</span>
+                  <span class='input-price'>
+                    <input class='input-price-num' type='text' value='31,899'>
+                    <span class='note-word'>請輸入期望價格</span>
+                    <span class='error-word'>設定價格請低於目前價格</span>
+                  </span>
+                  <button class='btn-disount'>-</button>
+                  <span class='discount-area'>自訂</span>
+                  <button class='btn-disount disabled'>+</button>
+                </div>
+                <div class='notice-setting'>
+                  <span class='notice-text'>提醒方式</span>
+                  <span class='email-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>email</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-email' placeholder='請輸入您的email' type='text'>
+                    <span class='error-word'>email格式不正確</span>
+                  </span>
+                  <span class='phone-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>簡訊</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-phone' placeholder='請輸入您的手機號碼' type='text'>
+                    <span class='error-word'>手機格式不正確</span>
+                  </span>
+                </div>
+                <button class='flipback btn-saved disabled'>儲存</button>
+              </div>
+            </div>
+          </div>
+          <!-- /關閉提醒的顯示 -->
+          <div class='ringing-pd'>
+            <div class='wrap'>
+              <div class='face front'>
+                <div class='notice-switch'>
+                  <input id='switch-id5' type='checkbox'>
+                  <label class='label-switch' for='switch-id5'></label>
+                </div>
+                <div class='pd-img'>
+                  <img src='style/images/pd-img3.jpg'>
+                </div>
+                <!-- /關閉提醒時編輯按鈕不顯示%a.flip.icon.icon-edit -->
+                <a class='icon icon-delete'></a>
+                <a class='pd-info' href=''>
+                  <span class='pd-name'>SONY A9 單機身(公司貨)</span>
+                  <span class='platform-price'>
+                    <span class='platform-name'>Yahoo奇摩購物中心</span>
+                    <span class='pd-price'>129,980</span>
+                  </span>
+                  <span class='expect-price'>
+                    期望入手價
+                    <span class='user-price'>122,000</span>
+                  </span>
+                </a>
+                <a class='ringing-info icon icon-bell-ring' href=''>
+                  <span class='info-platform'>momo富邦購物館</span>
+                  <span class='info-price'>122,000</span>
+                  到價了！
+                  <span class='info-linkout icon icon-linkout'>
+                    立即前往
+                  </span>
+                </a>
+              </div>
+              <div class='face back'>
+                <div class='price-setting'>
+                  <span class='current-price'>目前價格</span>
+                  <span class='current-price-num'>31,900</span>
+                  <span class='expect-price'>期望價格</span>
+                  <span class='input-price'>
+                    <input class='input-price-num' type='text' value='31,899'>
+                    <span class='note-word'>請輸入期望價格</span>
+                    <span class='error-word'>設定價格請低於目前價格</span>
+                  </span>
+                  <button class='btn-disount'>-</button>
+                  <span class='discount-area'>自訂</span>
+                  <button class='btn-disount disabled'>+</button>
+                </div>
+                <div class='notice-setting'>
+                  <span class='notice-text'>提醒方式</span>
+                  <span class='email-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>email</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-email' placeholder='請輸入您的email' type='text'>
+                    <span class='error-word'>email格式不正確</span>
+                  </span>
+                  <span class='phone-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>簡訊</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-phone' placeholder='請輸入您的手機號碼' type='text'>
+                    <span class='error-word'>手機格式不正確</span>
+                  </span>
+                </div>
+                <button class='flipback btn-saved disabled'>儲存</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='tabs-item ringing-pd-area' id='tab3'>
+          <!-- /未到價商品empty state的顯示 -->
+          <div class='empty-state'>
+            <span class='empty-img'>
+              <img src='style/images/empty-folder.png'>
+            </span>
+            <span class='empty-text'>清單內沒有商品，好桑心～</span>
+          </div>
+          <!-- /未到價商品無庫存/下架的顯示 -->
+          <div class='ringing-pd'>
+            <div class='wrap'>
+              <div class='face front'>
+                <div class='notice-switch'>
+                  <input checked='checked' id='switch-id1' type='checkbox'>
+                  <label class='label-switch' for='switch-id1'></label>
+                </div>
+                <div class='pd-img'>
+                  <img src='style/images/pd-img.jpg'>
+                </div>
+                <a class='flip icon icon-edit'></a>
+                <a class='icon icon-delete'></a>
+                <a class='pd-info' href=''>
+                  <span class='pd-name'>APPLE iPhone 7 Plus 32G智慧型手機</span>
+                  <span class='platform-price'>
+                    <span class='platform-name'>FriDay購物</span>
+                    <span class='pd-price'>31,900</span>
+                  </span>
+                  <span class='expect-price'>
+                    期望入手價
+                    <span class='user-price'>28,900</span>
+                  </span>
+                </a>
+                <a class='ringing-info icon icon-bell-ring' href=''>
+                  <span class='info-platform'>pchome線上購物中心</span>
+                  <span class='info-price'>25,000</span>
+                  到價了！
+                  <span class='info-linkout icon icon-linkout'>
+                    立即前往
+                  </span>
+                </a>
+              </div>
+              <div class='face back'>
+                <div class='price-setting'>
+                  <span class='current-price'>目前價格</span>
+                  <span class='current-price-num'>31,900</span>
+                  <span class='expect-price'>期望價格</span>
+                  <span class='input-price'>
+                    <input class='input-price-num' type='text' value='31,899'>
+                    <span class='note-word'>請輸入期望價格</span>
+                    <span class='error-word'>設定價格請低於目前價格</span>
+                  </span>
+                  <button class='btn-disount'>-</button>
+                  <span class='discount-area'>自訂</span>
+                  <button class='btn-disount disabled'>+</button>
+                </div>
+                <div class='notice-setting'>
+                  <span class='notice-text'>提醒方式</span>
+                  <span class='email-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>email</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-email' placeholder='請輸入您的email' type='text'>
+                    <span class='error-word'>email格式不正確</span>
+                  </span>
+                  <span class='phone-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>簡訊</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-phone' placeholder='請輸入您的手機號碼' type='text'>
+                    <span class='error-word'>手機格式不正確</span>
+                  </span>
+                </div>
+                <button class='flipback btn-saved disabled'>儲存</button>
+              </div>
+              <div class='pd-nosold'>
+                <img class='nosold-img' src='style/images/empty-box.png'>
+                <span class='nosold-text'>
+                  此商品
+                </span>
+                <span class='platform-name'>pchome商店街</span>
+                <span class='nosold-text'>
+                  已下架，是否改追蹤其他店家？
+                </span>
+                <a class='icon icon-arrow btn-follow' href=''>立即追蹤</a>
+                <a class='icon icon-delete'></a>
+              </div>
+            </div>
+          </div>
+          <!-- /未到價商品沒有在任何平台賣的顯示 -->
+          <div class='ringing-pd'>
+            <div class='wrap'>
+              <div class='face front'>
+                <div class='notice-switch'>
+                  <input checked='checked' id='switch-id2' type='checkbox'>
+                  <label class='label-switch' for='switch-id2'></label>
+                </div>
+                <div class='pd-img'>
+                  <img src='style/images/pd-img.jpg'>
+                </div>
+                <a class='flip icon icon-edit'></a>
+                <a class='icon icon-delete'></a>
+                <a class='pd-info' href=''>
+                  <span class='pd-name'>APPLE iPhone 7 Plus 32G智慧型手機</span>
+                  <span class='platform-price'>
+                    <span class='platform-name'>FriDay購物</span>
+                    <span class='pd-price'>31,900</span>
+                  </span>
+                  <span class='expect-price'>
+                    期望入手價
+                    <span class='user-price'>28,900</span>
+                  </span>
+                </a>
+                <a class='ringing-info icon icon-bell-ring' href=''>
+                  <span class='info-platform'>pchome線上購物中心</span>
+                  <span class='info-price'>25,000</span>
+                  到價了！
+                  <span class='info-linkout icon icon-linkout'>
+                    立即前往
+                  </span>
+                </a>
+              </div>
+              <div class='face back'>
+                <div class='price-setting'>
+                  <span class='current-price'>目前價格</span>
+                  <span class='current-price-num'>31,900</span>
+                  <span class='expect-price'>期望價格</span>
+                  <span class='input-price'>
+                    <input class='input-price-num' type='text' value='31,899'>
+                    <span class='note-word'>請輸入期望價格</span>
+                    <span class='error-word'>設定價格請低於目前價格</span>
+                  </span>
+                  <button class='btn-disount'>-</button>
+                  <span class='discount-area'>自訂</span>
+                  <button class='btn-disount disabled'>+</button>
+                </div>
+                <div class='notice-setting'>
+                  <span class='notice-text'>提醒方式</span>
+                  <span class='email-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>email</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-email' placeholder='請輸入您的email' type='text'>
+                    <span class='error-word'>email格式不正確</span>
+                  </span>
+                  <span class='phone-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>簡訊</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-phone' placeholder='請輸入您的手機號碼' type='text'>
+                    <span class='error-word'>手機格式不正確</span>
+                  </span>
+                </div>
+                <button class='flipback btn-saved disabled'>儲存</button>
+              </div>
+              <div class='pd-nosold'>
+                <img class='nosold-img' src='style/images/empty-box.png'>
+                <span class='nosold-text'>
+                  此商品在所有店家皆已下架，找找其他相關商品？
+                </span>
+                <a class='icon icon-delete'></a>
+              </div>
+            </div>
+          </div>
+          <!-- /未到價商品的顯示 -->
+          <div class='ringing-pd'>
+            <div class='wrap'>
+              <div class='face front'>
+                <div class='notice-switch'>
+                  <input checked='checked' id='switch-id6' type='checkbox'>
+                  <label class='label-switch' for='switch-id6'></label>
+                </div>
+                <div class='pd-img'>
+                  <img src='style/images/pd-img.jpg'>
+                </div>
+                <a class='flip icon icon-edit'></a>
+                <a class='icon icon-delete delete-alert2'></a>
+                <a class='pd-info' href=''>
+                  <span class='pd-name'>APPLE iPhone 7 Plus 32G智慧型手機</span>
+                  <span class='platform-price'>
+                    <span class='platform-name'>FriDay購物</span>
+                    <span class='pd-price'>31,900</span>
+                  </span>
+                  <span class='expect-price'>
+                    期望入手價
+                    <span class='user-price'>28,900</span>
+                  </span>
+                </a>
+                <a class='ringing-info icon icon-bell-filled' href=''>
+                  <span class='info-text'>距離期望價格還差</span>
+                  <span class='info-price'>3,000</span>
+                  <span class='info-text'>加油～好嗎?!</span>
+                </a>
+              </div>
+              <div class='face back'>
+                <div class='price-setting'>
+                  <span class='current-price'>目前價格</span>
+                  <span class='current-price-num'>31,900</span>
+                  <span class='expect-price'>期望價格</span>
+                  <span class='input-price'>
+                    <input class='input-price-num' type='text' value='31,899'>
+                    <span class='note-word'>請輸入期望價格</span>
+                    <span class='error-word'>設定價格請低於目前價格</span>
+                  </span>
+                  <button class='btn-disount'>-</button>
+                  <span class='discount-area'>自訂</span>
+                  <button class='btn-disount disabled'>+</button>
+                </div>
+                <div class='notice-setting'>
+                  <span class='notice-text'>提醒方式</span>
+                  <span class='email-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>email</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-email' placeholder='請輸入您的email' type='text'>
+                    <span class='error-word'>email格式不正確</span>
+                  </span>
+                  <span class='phone-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>簡訊</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-phone' placeholder='請輸入您的手機號碼' type='text'>
+                    <span class='error-word'>手機格式不正確</span>
+                  </span>
+                </div>
+                <button class='flipback btn-saved disabled'>儲存</button>
+              </div>
+            </div>
+          </div>
+          <div class='ringing-pd'>
+            <div class='wrap'>
+              <div class='face front'>
+                <div class='notice-switch'>
+                  <input checked='checked' id='switch-id7' type='checkbox'>
+                  <label class='label-switch' for='switch-id7'></label>
+                </div>
+                <div class='pd-img'>
+                  <img src='style/images/pd-img2.jpg'>
+                </div>
+                <a class='flip icon icon-edit'></a>
+                <a class='icon icon-delete'></a>
+                <a class='pd-info' href=''>
+                  <span class='pd-name'>New Balance 休閒鞋 373 運動 女鞋</span>
+                  <span class='platform-price'>
+                    <span class='platform-name'>Yahoo奇摩購物中心</span>
+                    <span class='pd-price'>2,780</span>
+                  </span>
+                  <span class='expect-price'>
+                    期望入手價
+                    <span class='user-price'>2,000</span>
+                  </span>
+                </a>
+                <a class='ringing-info icon icon-bell-filled' href=''>
+                  <span class='info-text'>距離期望價格還差</span>
+                  <span class='info-price'>300</span>
+                  <span class='info-text'>加油～好嗎?!</span>
+                </a>
+              </div>
+              <div class='face back'>
+                <div class='price-setting'>
+                  <span class='current-price'>目前價格</span>
+                  <span class='current-price-num'>31,900</span>
+                  <span class='expect-price'>期望價格</span>
+                  <span class='input-price'>
+                    <input class='input-price-num' type='text' value='31,899'>
+                    <span class='note-word'>請輸入期望價格</span>
+                    <span class='error-word'>設定價格請低於目前價格</span>
+                  </span>
+                  <button class='btn-disount'>-</button>
+                  <span class='discount-area'>自訂</span>
+                  <button class='btn-disount disabled'>+</button>
+                </div>
+                <div class='notice-setting'>
+                  <span class='notice-text'>提醒方式</span>
+                  <span class='email-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>email</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-email' placeholder='請輸入您的email' type='text'>
+                    <span class='error-word'>email格式不正確</span>
+                  </span>
+                  <span class='phone-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>簡訊</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-phone' placeholder='請輸入您的手機號碼' type='text'>
+                    <span class='error-word'>手機格式不正確</span>
+                  </span>
+                </div>
+                <button class='flipback btn-saved disabled'>儲存</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='tabs-item ringing-pd-area' id='tab4'>
+          <!-- /收藏商品empty state的顯示 -->
+          <div class='empty-state'>
+            <span class='empty-img'>
+              <img src='style/images/empty-folder.png'>
+            </span>
+            <span class='empty-text'>清單內沒有商品，快去逛逛吧～</span>
+            <img class='arrow' src='style/images/arrow.png'>
+          </div>
+          <!-- /未到價商品無庫存/下架的顯示 -->
+          <div class='ringing-pd'>
+            <div class='wrap'>
+              <div class='face front'>
+                <div class='notice-switch'>
+                  <input checked='checked' id='switch-id1' type='checkbox'>
+                  <label class='label-switch' for='switch-id1'></label>
+                </div>
+                <div class='pd-img'>
+                  <img src='style/images/pd-img.jpg'>
+                </div>
+                <a class='flip icon icon-edit'></a>
+                <a class='icon icon-delete'></a>
+                <a class='pd-info' href=''>
+                  <span class='pd-name'>APPLE iPhone 7 Plus 32G智慧型手機</span>
+                  <span class='platform-price'>
+                    <span class='platform-name'>FriDay購物</span>
+                    <span class='pd-price'>31,900</span>
+                  </span>
+                  <span class='expect-price'>
+                    期望入手價
+                    <span class='user-price'>28,900</span>
+                  </span>
+                </a>
+                <a class='ringing-info icon icon-bell-ring' href=''>
+                  <span class='info-platform'>pchome線上購物中心</span>
+                  <span class='info-price'>25,000</span>
+                  到價了！
+                  <span class='info-linkout icon icon-linkout'>
+                    立即前往
+                  </span>
+                </a>
+              </div>
+              <div class='face back'>
+                <div class='price-setting'>
+                  <span class='current-price'>目前價格</span>
+                  <span class='current-price-num'>31,900</span>
+                  <span class='expect-price'>期望價格</span>
+                  <span class='input-price'>
+                    <input class='input-price-num' type='text' value='31,899'>
+                    <span class='note-word'>請輸入期望價格</span>
+                    <span class='error-word'>設定價格請低於目前價格</span>
+                  </span>
+                  <button class='btn-disount'>-</button>
+                  <span class='discount-area'>自訂</span>
+                  <button class='btn-disount disabled'>+</button>
+                </div>
+                <div class='notice-setting'>
+                  <span class='notice-text'>提醒方式</span>
+                  <span class='email-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>email</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-email' placeholder='請輸入您的email' type='text'>
+                    <span class='error-word'>email格式不正確</span>
+                  </span>
+                  <span class='phone-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>簡訊</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-phone' placeholder='請輸入您的手機號碼' type='text'>
+                    <span class='error-word'>手機格式不正確</span>
+                  </span>
+                </div>
+                <button class='flipback btn-saved disabled'>儲存</button>
+              </div>
+              <div class='pd-nosold'>
+                <img class='nosold-img' src='style/images/empty-box.png'>
+                <span class='nosold-text'>
+                  此商品
+                </span>
+                <span class='platform-name'>pchome商店街</span>
+                <span class='nosold-text'>
+                  已下架，搜尋同商品最便宜店家？
+                </span>
+                <a class='icon icon-arrow btn-follow' href=''>立即搜尋</a>
+                <a class='icon icon-delete'></a>
+              </div>
+            </div>
+          </div>
+          <!-- /收藏商品沒有在任何平台賣的顯示 -->
+          <div class='ringing-pd'>
+            <div class='wrap'>
+              <div class='face front'>
+                <div class='notice-switch'>
+                  <input checked='checked' id='switch-id2' type='checkbox'>
+                  <label class='label-switch' for='switch-id2'></label>
+                </div>
+                <div class='pd-img'>
+                  <img src='style/images/pd-img.jpg'>
+                </div>
+                <a class='flip icon icon-edit'></a>
+                <a class='icon icon-delete'></a>
+                <a class='pd-info' href=''>
+                  <span class='pd-name'>APPLE iPhone 7 Plus 32G智慧型手機</span>
+                  <span class='platform-price'>
+                    <span class='platform-name'>FriDay購物</span>
+                    <span class='pd-price'>31,900</span>
+                  </span>
+                  <span class='expect-price'>
+                    期望入手價
+                    <span class='user-price'>28,900</span>
+                  </span>
+                </a>
+                <a class='ringing-info icon icon-bell-ring' href=''>
+                  <span class='info-platform'>pchome線上購物中心</span>
+                  <span class='info-price'>25,000</span>
+                  到價了！
+                  <span class='info-linkout icon icon-linkout'>
+                    立即前往
+                  </span>
+                </a>
+              </div>
+              <div class='face back'>
+                <div class='price-setting'>
+                  <span class='current-price'>目前價格</span>
+                  <span class='current-price-num'>31,900</span>
+                  <span class='expect-price'>期望價格</span>
+                  <span class='input-price'>
+                    <input class='input-price-num' type='text' value='31,899'>
+                    <span class='note-word'>請輸入期望價格</span>
+                    <span class='error-word'>設定價格請低於目前價格</span>
+                  </span>
+                  <button class='btn-disount'>-</button>
+                  <span class='discount-area'>自訂</span>
+                  <button class='btn-disount disabled'>+</button>
+                </div>
+                <div class='notice-setting'>
+                  <span class='notice-text'>提醒方式</span>
+                  <span class='email-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>email</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-email' placeholder='請輸入您的email' type='text'>
+                    <span class='error-word'>email格式不正確</span>
+                  </span>
+                  <span class='phone-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>簡訊</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-phone' placeholder='請輸入您的手機號碼' type='text'>
+                    <span class='error-word'>手機格式不正確</span>
+                  </span>
+                </div>
+                <button class='flipback btn-saved disabled'>儲存</button>
+              </div>
+              <div class='pd-nosold'>
+                <img class='nosold-img' src='style/images/empty-box.png'>
+                <span class='nosold-text'>
+                  此商品在所有店家皆已下架，找找其他相關商品？
+                </span>
+                <a class='icon icon-delete'></a>
+              </div>
+            </div>
+          </div>
+          <!-- /收藏商品的顯示 -->
+          <div class='ringing-pd'>
+            <div class='wrap'>
+              <div class='face front'>
+                <div class='notice-switch'>
+                  <input id='switch-id8' type='checkbox'>
+                  <label class='label-switch' for='switch-id8'></label>
+                </div>
+                <div class='pd-img'>
+                  <img src='style/images/pd-img.jpg'>
+                </div>
+                <a class='icon icon-delete'></a>
+                <a class='pd-info' href=''>
+                  <span class='pd-name'>APPLE iPhone 7 Plus 32G智慧型手機</span>
+                  <span class='platform-price'>
+                    <span class='platform-name'>FriDay購物</span>
+                    <span class='pd-price'>31,900</span>
+                  </span>
+                </a>
+                <a class='ringing-info icon icon-bell-line' href=''>
+                  <span class='info-text'>尚未設定降價提醒</span>
+                </a>
+              </div>
+              <div class='face back'>
+                <div class='price-setting'>
+                  <span class='current-price'>目前價格</span>
+                  <span class='current-price-num'>31,900</span>
+                  <span class='expect-price'>期望價格</span>
+                  <span class='input-price'>
+                    <input class='input-price-num' type='text' value='31,899'>
+                    <span class='note-word'>請輸入期望價格</span>
+                    <span class='error-word'>設定價格請低於目前價格</span>
+                  </span>
+                  <button class='btn-disount'>-</button>
+                  <span class='discount-area'>自訂</span>
+                  <button class='btn-disount disabled'>+</button>
+                </div>
+                <div class='notice-setting'>
+                  <span class='notice-text'>提醒方式</span>
+                  <span class='email-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>email</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-email' placeholder='請輸入您的email' type='text'>
+                    <span class='error-word'>email格式不正確</span>
+                  </span>
+                  <span class='phone-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>簡訊</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-phone' placeholder='請輸入您的手機號碼' type='text'>
+                    <span class='error-word'>手機格式不正確</span>
+                  </span>
+                </div>
+                <button class='flipback btn-saved disabled'>儲存</button>
+              </div>
+            </div>
+          </div>
+          <div class='ringing-pd'>
+            <div class='wrap'>
+              <div class='face front'>
+                <div class='notice-switch'>
+                  <input id='switch-id9' type='checkbox'>
+                  <label class='label-switch' for='switch-id9'></label>
+                </div>
+                <div class='pd-img'>
+                  <img src='style/images/pd-img2.jpg'>
+                </div>
+                <a class='icon icon-delete'></a>
+                <a class='pd-info' href=''>
+                  <span class='pd-name'>New Balance 休閒鞋 373 運動 女鞋</span>
+                  <span class='platform-price'>
+                    <span class='platform-name'>Yahoo奇摩購物中心</span>
+                    <span class='pd-price'>2,780</span>
+                  </span>
+                </a>
+                <a class='ringing-info icon icon-bell-line' href=''>
+                  <span class='info-text'>尚未設定降價提醒</span>
+                </a>
+              </div>
+              <div class='face back'>
+                <div class='price-setting'>
+                  <span class='current-price'>目前價格</span>
+                  <span class='current-price-num'>31,900</span>
+                  <span class='expect-price'>期望價格</span>
+                  <span class='input-price'>
+                    <input class='input-price-num' type='text' value='31,899'>
+                    <span class='note-word'>請輸入期望價格</span>
+                    <span class='error-word'>設定價格請低於目前價格</span>
+                  </span>
+                  <button class='btn-disount'>-</button>
+                  <span class='discount-area'>自訂</span>
+                  <button class='btn-disount disabled'>+</button>
+                </div>
+                <div class='notice-setting'>
+                  <span class='notice-text'>提醒方式</span>
+                  <span class='email-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>email</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-email' placeholder='請輸入您的email' type='text'>
+                    <span class='error-word'>email格式不正確</span>
+                  </span>
+                  <span class='phone-way'>
+                    <label class='control control-checkbox'>
+                      <span class='email-title'>簡訊</span>
+                      <input type='checkbox'>
+                      <span class='control-indicator'></span>
+                    </label>
+                    <input class='input-phone' placeholder='請輸入您的手機號碼' type='text'>
+                    <span class='error-word'>手機格式不正確</span>
+                  </span>
+                </div>
+                <button class='flipback btn-saved disabled'>儲存</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
