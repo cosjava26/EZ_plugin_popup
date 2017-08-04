@@ -1,0 +1,51 @@
+.control
+  display: inline-block
+  position: relative
+  padding-left: 20px
+  cursor: pointer
+  font-size: 12px
+  input
+    position: absolute
+    z-index: -1
+    opacity: 0
+.control-indicator
+  position: absolute
+  top: 2px
+  left: 0
+  height: 14px
+  width: 14px
+  border: 1px solid $gray
+  background-color: #fff
+  @include border-radius(2px)
+.control
+  &:hover input ~ .control-indicator
+    border: 1px solid $orange
+    background: #e8e8e8
+  input
+    &:focus ~ .control-indicator
+      border: 1px solid $orange
+      background: #e8e8e8
+    &:checked ~ .control-indicator
+      border: 1px solid $orange
+      background: #fff
+  &:hover input:not([disabled]):checked ~ .control-indicator
+    border: 1px solid $orange
+    background: #fff
+  input
+    &:checked:focus ~ .control-indicator
+      border: 1px solid $orange
+      background: #fff
+.control-indicator:after
+  content: ''
+  position: absolute
+  display: none
+.control input:checked ~ .control-indicator:after
+  display: block
+.control-checkbox .control-indicator:after
+  left: 5px
+  top: 1px
+  width: 3px
+  height: 8px
+  border: solid $orange
+  border-width: 0 2px 2px 0
+  transform: rotate(45deg)

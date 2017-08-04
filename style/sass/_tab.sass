@@ -1,0 +1,39 @@
+.tabs-area
+	ul.tabs
+		margin: 9px 0 0 10px
+		li
+			display: inline-block
+			cursor: pointer
+			span
+				padding: 0 8px
+				color: $gray
+			&.active
+				border-bottom: 3px solid $orange
+				span
+					color: $orange
+			&.ringing-pd
+				.icon-bell-ring:before
+					padding: 0px 4px 0 0
+					font-size: 16px
+					vertical-align: text-top
+					color: $yellow
+			&.notringing-pd
+				.icon-bell-filled:before
+					padding: 0px 4px 0 0
+					font-size: 14px
+					color: #9096a6
+			&.love-pd
+				.icon-heart-filled:before
+					padding: 0px 4px 0 0
+					font-size: 14px
+					color: $red
+.tabs-content
+	position: absolute
+	top: 80px
+	left: 0
+	width: 100%
+	max-height: 370px
+	overflow: hidden
+	overflow-y: scroll
+	.tabs-item
+		display: none

@@ -1,0 +1,449 @@
+.ringing-pd-area
+	.empty-state
+		position: relative
+		display: none
+		margin: 60px 0 0 0
+		text-align: center
+		.empty-img
+			display: inline-block
+			width: 128px
+			img
+				max-width: 100%
+		.empty-text
+			display: block
+			font-size: 18px
+			color: $gray-light
+		.arrow
+			float: right
+			margin: -22px 15px 0 0
+//已到價
+.tabs-item
+	.ringing-pd
+		position: relative
+		margin: 10px 0
+		height: 115px
+		max-height: 115px
+		@include perspective(1000px)
+		+pie-clearfix
+		.notice-switch
+			float: left
+			margin: 55px 0 0 15px
+			label
+				position: relative
+				height: 0
+				width: 40px
+				cursor: pointer
+				&:before
+					content: ''
+					position: absolute
+					margin-top: -8px
+					width: 40px
+					height: 16px
+					background: rgba(34, 31, 31,26)
+					box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5)
+					border-radius: 8px
+					opacity: 0.3
+					transition: all 0.4s ease-in-out
+				&:after
+					content: ''
+					position: absolute
+					top: -4px
+					left: -4px
+					margin-top: -8px
+					width: 24px
+					height: 24px
+					background: rgb(241, 241, 241)
+					border-radius: 16px
+					box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3)
+					transition: left .3s ease,background .3s ease,box-shadow .1s ease
+			input[type="checkbox"]
+				display: none
+				&:not(:disabled)~.label-switch:active:after
+					box-shadow: 0 1px 3px 1px rgba(0,0,0,.5),0 0 0 15px rgba(0,0,0,.10)
+				&:checked + label::before
+					background-color: $orange
+					opacity: 0.5
+				&:checked + label::after
+					background: inherit
+					left: 20px
+			.label-switch
+				background-color: $orange
+		.wrap
+			position: absolute
+			width: 100%
+			height: 100%
+			@include transform-style(preserve-3d)
+			@include transition(transform .4s linear)
+			@include box-shadow(rgba(0,0,0,0.15) 0px 1px 4px)
+			&:hover
+				.icon-edit,.icon-delete
+					display: inline-block
+			&.flipped
+				@include transform(rotateY(180deg))
+				&:hover
+					.icon-edit,.icon-delete
+						display: none
+		.face
+			position: absolute
+			width: 100%
+			height: 100%
+			background-color: $white
+			@include backface-visibility(hidden)
+			@include box-sizing(border-box)
+			a.flip,a.flipback
+				position: absolute
+				right: 30px
+				top: 7px
+				z-index: 2
+				@include backface-visibility(hidden)
+			a.flipback
+				right: 0
+				top: 0
+			&.back
+				@include transform(rotateY(180deg))
+				@include backface-visibility(hidden)
+		.pd-img
+			float: left
+			margin: 18px 0 18px 55px
+			width: 80px
+			height: 80px
+			line-height: 80px
+			overflow: hidden
+			img
+				max-width: 100%
+		.icon-edit
+			display: none
+			cursor: pointer
+			&:before
+				color: $gray
+				font-size: 16px
+			&:hover
+				text-decoration: none
+				&:before
+					color: $orange
+		.icon-delete
+			display: none
+			position: absolute
+			top: 7px
+			right: 7px
+			cursor: pointer
+			z-index: 2
+			&:before
+				color: $gray
+				font-size: 16px
+			&:hover
+				text-decoration: none
+				&:before
+					color: $orange
+		.pd-info
+			position: absolute
+			top: 7px
+			left: 160px
+			width: 340px
+			font-size: 14px
+			@include backface-visibility(hidden)
+			&:hover
+				text-decoration: none
+			.pd-name
+				display: inline-block
+				width: 290px
+				height: 20px
+				overflow: hidden
+			.platform-price
+				display: block
+				color: $gray
+				+pie-clearfix
+				.platform-name
+					float: left
+					display: inline-block
+					max-width: 140px
+					height: 20px
+					overflow: hidden
+					white-space: nowrap
+					text-overflow: ellipsis
+				.pd-price
+					float: left
+					padding: 0 0 0 5px
+					&:before
+						content: "$"
+			.expect-price
+				display: block
+				margin: 3px 0 0 0
+				color: $orange
+				.user-price
+					padding: 0 0 0 5px
+					&:before
+						content: "$"
+		.ringing-info
+			position: absolute
+			bottom: 0
+			left: 160px
+			display: block
+			width: 340px
+			height: 30px
+			line-height: 30px
+			font-size: 12px
+			border-top: 1px solid $gray-lighter
+			color: $gray
+			@include backface-visibility(hidden)
+			&:before
+				float: left
+				margin: 7px 5px 0 0
+				font-size: 16px
+				color: $yellow
+			&.icon-bell-filled:before
+				color: #9096a6
+			&.icon-bell-line:before
+				color: $gray
+			&:hover
+				text-decoration: none
+				background-color: $gray-lightest
+			.info-platform
+				float: left
+				margin: 7px 0 0 0
+				display: inline-block
+				max-width: 120px
+				height: 18px
+				overflow: hidden
+				line-height: normal
+				white-space: nowrap
+				text-overflow: ellipsis
+			.info-price
+				float: left
+				margin: 7px 3px 0 3px
+				max-width: 70px
+				height: 16px
+				overflow: hidden
+				line-height: normal
+				color: $orange
+				font-size: 13px
+				font-weight: bold
+				white-space: nowrap
+				text-overflow: ellipsis
+				&:before
+					content: "$"
+			.info-text
+				float: left
+				margin: 7px 0 0 0
+				line-height: normal
+			.info-linkout
+				float: right
+				margin: 0 7px 0 0
+				color: $orange
+				&:before
+					float: right
+					margin: 7px 0 0 5px
+		
+		//降價提醒設定
+		.price-setting
+			position: relative
+			float: left
+			padding: 0 10px
+			width: 410px
+			height: 57.5px
+			border-bottom: 1px solid $gray-lighter
+			font-size: 12px
+			color: $gray
+			.current-price
+				float: left
+				margin: 21px 0
+				display: inline-block
+				line-height: normal
+			.current-price-num
+				float: left
+				margin: 21px 0
+				display: inline-block
+				padding: 0 0 0 5px
+				max-width: 75px
+				height: 16px
+				overflow: hidden
+				line-height: normal
+				white-space: nowrap
+				text-overflow: ellipsis
+				&:before
+					content: "$"
+			.expect-price
+				position: relative
+				float: left
+				display: inline-block
+				margin: 21px 5px 21px 10px
+				color: $orange
+				line-height: normal
+				&:before
+					content: ""
+					position: absolute
+					top: -6px
+					left: -3px
+					display: inline-block
+					width: 6px 
+					height: 6px
+					@include border-radius(6px)
+					background-color: $orange
+			.input-price
+				position: relative
+				float: left
+				margin: 19px 10px 19px 0
+				&:before
+					content: "$"
+				.input-price-num
+					width: 100px
+					padding: 0
+					border: 0
+					border-bottom: 1px solid $gray-light
+					font-size: 12px
+					color: $gray
+					&:focus
+						border-bottom: 1px solid $orange
+				.note-word,.error-word
+					position: absolute
+					bottom: -17px
+					left: 11px
+					line-height: normal
+					font-size: 10px
+					transform-origin: 0
+					-webkit-transform: scale(0.83)
+				.error-word
+					display: none
+					width: 134px
+					color: $red
+			.btn-disount
+				float: left
+				margin: 18px 0
+				padding: 1px 10px
+				background-color: $orange
+				font-size: 16px
+				color: $white
+				@include border-radius(2px)
+				border: none
+				border-bottom: 2px solid $orange-dark
+				cursor: pointer
+				&:hover
+					background-color: $orange-dark
+					border-bottom: 2px solid #e04e00
+				&.disabled
+					background-color: $gray-light
+					border-bottom: 2px solid $gray
+					cursor: not-allowed
+			.discount-area
+				float: left
+				margin: 21px 5px
+				line-height: normal
+		
+		//提醒方式設定
+		.notice-setting
+			position: relative
+			float: left
+			padding: 0 10px
+			width: 410px
+			height: 57.5px
+			font-size: 12px
+			color: $gray
+			.notice-text
+				position: relative
+				float: left
+				margin: 20px 5px 20px 0
+				display: inline-block
+				color: $orange
+				line-height: normal
+				&:before
+					content: ""
+					position: absolute
+					top: -6px
+					left: -3px
+					display: inline-block
+					width: 6px 
+					height: 6px
+					@include border-radius(6px)
+					background-color: $orange
+			.email-way,.phone-way
+				position: relative
+				float: left
+				margin: 18px 0
+				.input-email,.input-phone
+					display: none
+					width: 126px
+					padding: 0
+					border: 0
+					border-bottom: 1px solid $gray-light
+					font-size: 12px
+					color: $gray
+					&:focus
+						border-bottom: 1px solid $orange
+				.input-phone
+					width: 115px
+				.error-word
+					display: none
+					position: absolute
+					bottom: -17px
+					left: 55px
+					color: $red
+					line-height: normal
+					font-size: 10px
+					transform-origin: 0
+					-webkit-transform: scale(0.83)
+			.phone-way
+				margin-left: 10px
+				.error-word
+					left: 46px
+		.btn-saved
+			padding: 0
+			width: 70px
+			height: 115px
+			line-height: 115px
+			border: none
+			background-color: $orange
+			text-align: center
+			font-size: 14px
+			color: $white
+			cursor: pointer
+			&:hover
+				background-color: $orange-dark
+			&.disabled
+				background-color: $gray-light
+		
+		//已到價商品下架顯示
+		.pd-nosold
+			position: absolute
+			width: 100%
+			height: 100%
+			z-index: 99
+			background-color: rgba(232, 232, 232, 0.98)
+			.nosold-img
+				float: left
+				margin: 27px 8px 27px 20px
+				width: 71px
+			.nosold-text
+				float: left
+				display: inline-block
+				margin: 48px 0
+				font-size: 14px
+				color: $gray-dark
+			.platform-name
+				float: left
+				display: inline-block
+				margin: 48px 0
+				width: 95px
+				height: 19px
+				overflow: hidden
+				white-space: nowrap
+				text-overflow: ellipsis
+				font-size: 14px
+				color: $gray-dark
+			.btn-follow
+				float: right
+				margin: 43px 20px 43px 0
+				padding: 5px
+				background-color: $orange
+				color: $white
+				font-size: 14px
+				border: none
+				@include border-radius(2px)
+				&:before
+					float: right
+					margin: 3px -5px 0 0
+				&:hover
+					background-color: $orange-dark
+					text-decoration: none
+			.icon-delete
+				display: inline-block
+

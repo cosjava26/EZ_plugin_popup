@@ -1,0 +1,62 @@
+.ringing-pd
+  .wrap
+    .face.front
+      .notice-switch
+        %input#switch-id1{:checked => "checked", :type => "checkbox"}/
+        %label.label-switch{:for => "switch-id1"}
+      .pd-img
+        %img{:src=>"style/images/pd-img.jpg"}
+      %a.flip.icon.icon-edit
+      %a.icon.icon-delete
+      %a.pd-info{:href=>""}
+        %span.pd-name APPLE iPhone 7 Plus 32G智慧型手機
+        %span.platform-price
+          %span.platform-name FriDay購物
+          %span.pd-price 31,900
+        %span.expect-price
+          期望入手價
+          %span.user-price 28,900
+      %a.ringing-info.icon.icon-bell-ring{:href=>""}
+        %span.info-platform pchome線上購物中心
+        %span.info-price 25,000
+        到價了！
+        %span.info-linkout.icon.icon-linkout
+          立即前往
+    .face.back
+      .price-setting
+        %span.current-price 目前價格
+        %span.current-price-num 31,900
+        %span.expect-price 期望價格
+        %span.input-price
+          %input.input-price-num{:type=>"text",:value=>"31,899"}
+          %span.note-word 請輸入期望價格
+          %span.error-word 設定價格請低於目前價格
+        %button.btn-disount -
+        %span.discount-area 自訂
+        %button.btn-disount.disabled +
+      .notice-setting
+        %span.notice-text 提醒方式
+        %span.email-way
+          %label.control.control-checkbox
+            %span.email-title email
+            %input{:type => "checkbox"}/
+            %span.control-indicator
+          %input.input-email{:placeholder => "請輸入您的email", :type => "text"}/
+          %span.error-word email格式不正確
+        %span.phone-way
+          %label.control.control-checkbox
+            %span.email-title 簡訊
+            %input{:type => "checkbox"}/
+            %span.control-indicator
+          %input.input-phone{:placeholder => "請輸入您的手機號碼", :type => "text"}/
+          %span.error-word 手機格式不正確
+      %button.flipback.btn-saved.disabled 儲存
+    .pd-nosold
+      %img.nosold-img{:src=>"style/images/empty-box.png"}
+      %span.nosold-text
+        此商品
+      %span.platform-name pchome商店街
+      %span.nosold-text
+        已下架，追蹤其他店家？
+      %a.icon.icon-arrow.btn-follow{:href=>""} 立即追蹤
+      %a.icon.icon-delete

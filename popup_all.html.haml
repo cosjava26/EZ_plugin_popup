@@ -1,0 +1,553 @@
+.Main
+  .navbar
+    %form.navbar-form{:action => ""}
+      %a.navbar-logo{:href=>"#",:target=>"_blank"}
+      %input.navbar-input{:type => "text", :placeholder => "輸入您想比價的商品或型號"}/
+      %button.navbar-btn.icon.icon-search{:type => "button"}
+    .tabs-area
+      %ul.tabs
+        %li.active{:rel=>"tab1"}
+          %span 全部商品
+        %li.ringing-pd{:rel=>"tab2"}
+          %span.icon.icon-bell-ring 已到價
+        %li.notringing-pd{:rel=>"tab3"}
+          %span.icon.icon-bell-filled 未到價
+        %li.love-pd{:rel=>"tab4"}
+          %span.icon.icon-heart-filled 收藏
+  .tabs-content
+    #tab1.tabs-item.all-pd.ringing-pd-area
+      //全部商品empty state的顯示
+      = render :partial => "module/2017/empty_state_noring"
+      //無庫存/下架的顯示
+      = render :partial => "module/2017/ring_pd_nosold"
+      = render :partial => "module/2017/love_pd_nosold"
+      //沒有在任何平台賣的顯示
+      = render :partial => "module/2017/ring_pd_allnosold"
+      //已到價商品的顯示
+      .ringing-pd
+        .wrap
+          .face.front
+            .notice-switch
+              %input#switch-id12{:checked => "checked", :type => "checkbox"}/
+              %label.label-switch{:for => "switch-id12"}
+            .pd-img
+              %img{:src=>"style/images/pd-img.jpg"}
+            %a.flip.icon.icon-edit
+            %a.icon.icon-delete
+            %a.pd-info{:href=>""}
+              %span.pd-name APPLE iPhone 7 Plus 32G智慧型手機
+              %span.platform-price
+                %span.platform-name FriDay購物
+                %span.pd-price 31,900
+              %span.expect-price
+                期望入手價
+                %span.user-price 28,900
+            %a.ringing-info.icon.icon-bell-ring{:href=>""}
+              %span.info-platform pchome線上購物中心
+              %span.info-price 25,000
+              到價了！
+              %span.info-linkout.icon.icon-linkout
+                立即前往
+          .face.back
+            .price-setting
+              %span.current-price 目前價格
+              %span.current-price-num 31,900
+              %span.expect-price 期望價格
+              %span.input-price
+                %input.input-price-num{:type=>"text",:value=>"31,899"}
+                %span.note-word 請輸入期望價格
+                %span.error-word 設定價格請低於目前價格
+              %button.btn-disount -
+              %span.discount-area 自訂
+              %button.btn-disount.disabled +
+            .notice-setting
+              %span.notice-text 提醒方式
+              %span.email-way
+                %label.control.control-checkbox
+                  %span.email-title email
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-email{:placeholder => "請輸入您的email", :type => "text"}/
+                %span.error-word email格式不正確
+              %span.phone-way
+                %label.control.control-checkbox
+                  %span.email-title 簡訊
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-phone{:placeholder => "請輸入您的手機號碼", :type => "text"}/
+                %span.error-word 手機格式不正確
+            %button.flipback.btn-saved.disabled 儲存
+      //未到價商品的顯示
+      .ringing-pd
+        .wrap
+          .face.front
+            .notice-switch
+              %input#switch-id6{:checked => "checked", :type => "checkbox"}/
+              %label.label-switch{:for => "switch-id6"}
+            .pd-img
+              %img{:src=>"style/images/pd-img.jpg"}
+            %a.flip.icon.icon-edit
+            %a.icon.icon-delete
+            %a.pd-info{:href=>""}
+              %span.pd-name APPLE iPhone 7 Plus 32G智慧型手機
+              %span.platform-price
+                %span.platform-name FriDay購物
+                %span.pd-price 31,900
+              %span.expect-price
+                期望入手價
+                %span.user-price 28,900
+            %a.ringing-info.icon.icon-bell-filled{:href=>""}
+              %span.info-text 距離期望價格還差
+              %span.info-price 3,000
+              %span.info-text 加油～好嗎?!
+          .face.back
+            .price-setting
+              %span.current-price 目前價格
+              %span.current-price-num 31,900
+              %span.expect-price 期望價格
+              %span.input-price
+                %input.input-price-num{:type=>"text",:value=>"31,899"}
+                %span.note-word 請輸入期望價格
+                %span.error-word 設定價格請低於目前價格
+              %button.btn-disount -
+              %span.discount-area 自訂
+              %button.btn-disount.disabled +
+            .notice-setting
+              %span.notice-text 提醒方式
+              %span.email-way
+                %label.control.control-checkbox
+                  %span.email-title email
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-email{:placeholder => "請輸入您的email", :type => "text"}/
+                %span.error-word email格式不正確
+              %span.phone-way
+                %label.control.control-checkbox
+                  %span.email-title 簡訊
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-phone{:placeholder => "請輸入您的手機號碼", :type => "text"}/
+                %span.error-word 手機格式不正確
+            %button.flipback.btn-saved.disabled 儲存
+      //收藏商品的顯示
+      .ringing-pd
+        .wrap
+          .face.front
+            .notice-switch
+              %input#switch-id8{:type => "checkbox"}/
+              %label.label-switch{:for => "switch-id8"}
+            .pd-img
+              %img{:src=>"style/images/pd-img.jpg"}
+            %a.icon.icon-delete
+            %a.pd-info{:href=>""}
+              %span.pd-name APPLE iPhone 7 Plus 32G智慧型手機
+              %span.platform-price
+                %span.platform-name FriDay購物
+                %span.pd-price 31,900
+            %a.ringing-info.icon.icon-bell-line{:href=>""}
+              %span.info-text 尚未設定降價提醒
+          .face.back
+            .price-setting
+              %span.current-price 目前價格
+              %span.current-price-num 31,900
+              %span.expect-price 期望價格
+              %span.input-price
+                %input.input-price-num{:type=>"text",:value=>"31,899"}
+                %span.note-word 請輸入期望價格
+                %span.error-word 設定價格請低於目前價格
+              %button.btn-disount -
+              %span.discount-area 自訂
+              %button.btn-disount.disabled +
+            .notice-setting
+              %span.notice-text 提醒方式
+              %span.email-way
+                %label.control.control-checkbox
+                  %span.email-title email
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-email{:placeholder => "請輸入您的email", :type => "text"}/
+                %span.error-word email格式不正確
+              %span.phone-way
+                %label.control.control-checkbox
+                  %span.email-title 簡訊
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-phone{:placeholder => "請輸入您的手機號碼", :type => "text"}/
+                %span.error-word 手機格式不正確
+            %button.flipback.btn-saved.disabled 儲存
+    #tab2.tabs-item.ringing-pd-area
+      //已到價商品empty state的顯示
+      = render :partial => "module/2017/empty_state_ringing"
+      //已到價商品無庫存/下架的顯示
+      = render :partial => "module/2017/ring_pd_nosold"
+      //已到價商品沒有在任何平台賣的顯示
+      = render :partial => "module/2017/ring_pd_allnosold"
+      //已到價商品的顯示
+      .ringing-pd
+        .wrap
+          .face.front
+            .notice-switch
+              %input#switch-id3{:checked => "checked", :type => "checkbox"}/
+              %label.label-switch{:for => "switch-id3"}
+            .pd-img
+              %img{:src=>"style/images/pd-img.jpg"}
+            %a.flip.icon.icon-edit
+            %a.icon.icon-delete
+            %a.pd-info{:href=>""}
+              %span.pd-name APPLE iPhone 7 Plus 32G智慧型手機
+              %span.platform-price
+                %span.platform-name FriDay購物
+                %span.pd-price 31,900
+              %span.expect-price
+                期望入手價
+                %span.user-price 28,900
+            %a.ringing-info.icon.icon-bell-ring{:href=>""}
+              %span.info-platform pchome線上購物中心
+              %span.info-price 25,000
+              到價了！
+              %span.info-linkout.icon.icon-linkout
+                立即前往
+          .face.back
+            .price-setting
+              %span.current-price 目前價格
+              %span.current-price-num 31,900
+              %span.expect-price 期望價格
+              %span.input-price
+                %input.input-price-num{:type=>"text",:value=>"31,899"}
+                %span.note-word 請輸入期望價格
+                %span.error-word 設定價格請低於目前價格
+              %button.btn-disount -
+              %span.discount-area 自訂
+              %button.btn-disount.disabled +
+            .notice-setting
+              %span.notice-text 提醒方式
+              %span.email-way
+                %label.control.control-checkbox
+                  %span.email-title email
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-email{:placeholder => "請輸入您的email", :type => "text"}/
+                %span.error-word email格式不正確
+              %span.phone-way
+                %label.control.control-checkbox
+                  %span.email-title 簡訊
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-phone{:placeholder => "請輸入您的手機號碼", :type => "text"}/
+                %span.error-word 手機格式不正確
+            %button.flipback.btn-saved.disabled 儲存
+      .ringing-pd
+        .wrap
+          .face.front
+            .notice-switch
+              %input#switch-id4{:checked => "checked", :type => "checkbox"}/
+              %label.label-switch{:for => "switch-id4"}
+            .pd-img
+              %img{:src=>"style/images/pd-img2.jpg"}
+            %a.flip.icon.icon-edit
+            %a.icon.icon-delete
+            %a.pd-info{:href=>""}
+              %span.pd-name New Balance 休閒鞋 373 運動 女鞋
+              %span.platform-price
+                %span.platform-name Yahoo奇摩購物中心
+                %span.pd-price 2,780
+              %span.expect-price
+                期望入手價
+                %span.user-price 2,000
+            %a.ringing-info.icon.icon-bell-ring{:href=>""}
+              %span.info-platform momo富邦購物館
+              %span.info-price 2,000
+              到價了！
+              %span.info-linkout.icon.icon-linkout
+                立即前往
+          .face.back
+            .price-setting
+              %span.current-price 目前價格
+              %span.current-price-num 31,900
+              %span.expect-price 期望價格
+              %span.input-price
+                %input.input-price-num{:type=>"text",:value=>"31,899"}
+                %span.note-word 請輸入期望價格
+                %span.error-word 設定價格請低於目前價格
+              %button.btn-disount -
+              %span.discount-area 自訂
+              %button.btn-disount.disabled +
+            .notice-setting
+              %span.notice-text 提醒方式
+              %span.email-way
+                %label.control.control-checkbox
+                  %span.email-title email
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-email{:placeholder => "請輸入您的email", :type => "text"}/
+                %span.error-word email格式不正確
+              %span.phone-way
+                %label.control.control-checkbox
+                  %span.email-title 簡訊
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-phone{:placeholder => "請輸入您的手機號碼", :type => "text"}/
+                %span.error-word 手機格式不正確
+            %button.flipback.btn-saved.disabled 儲存
+      //關閉提醒的顯示
+      .ringing-pd
+        .wrap
+          .face.front
+            .notice-switch
+              %input#switch-id5{:type => "checkbox"}/
+              %label.label-switch{:for => "switch-id5"}
+            .pd-img
+              %img{:src=>"style/images/pd-img3.jpg"}
+            //關閉提醒時編輯按鈕不顯示%a.flip.icon.icon-edit
+            %a.icon.icon-delete
+            %a.pd-info{:href=>""}
+              %span.pd-name SONY A9 單機身(公司貨)
+              %span.platform-price
+                %span.platform-name Yahoo奇摩購物中心
+                %span.pd-price 129,980
+              %span.expect-price
+                期望入手價
+                %span.user-price 122,000
+            %a.ringing-info.icon.icon-bell-ring{:href=>""}
+              %span.info-platform momo富邦購物館
+              %span.info-price 122,000
+              到價了！
+              %span.info-linkout.icon.icon-linkout
+                立即前往
+          .face.back
+            .price-setting
+              %span.current-price 目前價格
+              %span.current-price-num 31,900
+              %span.expect-price 期望價格
+              %span.input-price
+                %input.input-price-num{:type=>"text",:value=>"31,899"}
+                %span.note-word 請輸入期望價格
+                %span.error-word 設定價格請低於目前價格
+              %button.btn-disount -
+              %span.discount-area 自訂
+              %button.btn-disount.disabled +
+            .notice-setting
+              %span.notice-text 提醒方式
+              %span.email-way
+                %label.control.control-checkbox
+                  %span.email-title email
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-email{:placeholder => "請輸入您的email", :type => "text"}/
+                %span.error-word email格式不正確
+              %span.phone-way
+                %label.control.control-checkbox
+                  %span.email-title 簡訊
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-phone{:placeholder => "請輸入您的手機號碼", :type => "text"}/
+                %span.error-word 手機格式不正確
+            %button.flipback.btn-saved.disabled 儲存
+    #tab3.tabs-item.ringing-pd-area
+      //未到價商品empty state的顯示
+      = render :partial => "module/2017/empty_state_noring"
+      //未到價商品無庫存/下架的顯示
+      = render :partial => "module/2017/ring_pd_nosold"
+      //未到價商品沒有在任何平台賣的顯示
+      = render :partial => "module/2017/ring_pd_allnosold"
+      //未到價商品的顯示
+      .ringing-pd
+        .wrap
+          .face.front
+            .notice-switch
+              %input#switch-id6{:checked => "checked", :type => "checkbox"}/
+              %label.label-switch{:for => "switch-id6"}
+            .pd-img
+              %img{:src=>"style/images/pd-img.jpg"}
+            %a.flip.icon.icon-edit
+            %a.icon.icon-delete.delete-alert2
+            %a.pd-info{:href=>""}
+              %span.pd-name APPLE iPhone 7 Plus 32G智慧型手機
+              %span.platform-price
+                %span.platform-name FriDay購物
+                %span.pd-price 31,900
+              %span.expect-price
+                期望入手價
+                %span.user-price 28,900
+            %a.ringing-info.icon.icon-bell-filled{:href=>""}
+              %span.info-text 距離期望價格還差
+              %span.info-price 3,000
+              %span.info-text 加油～好嗎?!
+          .face.back
+            .price-setting
+              %span.current-price 目前價格
+              %span.current-price-num 31,900
+              %span.expect-price 期望價格
+              %span.input-price
+                %input.input-price-num{:type=>"text",:value=>"31,899"}
+                %span.note-word 請輸入期望價格
+                %span.error-word 設定價格請低於目前價格
+              %button.btn-disount -
+              %span.discount-area 自訂
+              %button.btn-disount.disabled +
+            .notice-setting
+              %span.notice-text 提醒方式
+              %span.email-way
+                %label.control.control-checkbox
+                  %span.email-title email
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-email{:placeholder => "請輸入您的email", :type => "text"}/
+                %span.error-word email格式不正確
+              %span.phone-way
+                %label.control.control-checkbox
+                  %span.email-title 簡訊
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-phone{:placeholder => "請輸入您的手機號碼", :type => "text"}/
+                %span.error-word 手機格式不正確
+            %button.flipback.btn-saved.disabled 儲存
+      .ringing-pd
+        .wrap
+          .face.front
+            .notice-switch
+              %input#switch-id7{:checked => "checked", :type => "checkbox"}/
+              %label.label-switch{:for => "switch-id7"}
+            .pd-img
+              %img{:src=>"style/images/pd-img2.jpg"}
+            %a.flip.icon.icon-edit
+            %a.icon.icon-delete
+            %a.pd-info{:href=>""}
+              %span.pd-name New Balance 休閒鞋 373 運動 女鞋
+              %span.platform-price
+                %span.platform-name Yahoo奇摩購物中心
+                %span.pd-price 2,780
+              %span.expect-price
+                期望入手價
+                %span.user-price 2,000
+            %a.ringing-info.icon.icon-bell-filled{:href=>""}
+              %span.info-text 距離期望價格還差
+              %span.info-price 300
+              %span.info-text 加油～好嗎?!
+          .face.back
+            .price-setting
+              %span.current-price 目前價格
+              %span.current-price-num 31,900
+              %span.expect-price 期望價格
+              %span.input-price
+                %input.input-price-num{:type=>"text",:value=>"31,899"}
+                %span.note-word 請輸入期望價格
+                %span.error-word 設定價格請低於目前價格
+              %button.btn-disount -
+              %span.discount-area 自訂
+              %button.btn-disount.disabled +
+            .notice-setting
+              %span.notice-text 提醒方式
+              %span.email-way
+                %label.control.control-checkbox
+                  %span.email-title email
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-email{:placeholder => "請輸入您的email", :type => "text"}/
+                %span.error-word email格式不正確
+              %span.phone-way
+                %label.control.control-checkbox
+                  %span.email-title 簡訊
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-phone{:placeholder => "請輸入您的手機號碼", :type => "text"}/
+                %span.error-word 手機格式不正確
+            %button.flipback.btn-saved.disabled 儲存
+    #tab4.tabs-item.ringing-pd-area
+      //收藏商品empty state的顯示
+      = render :partial => "module/2017/empty_state_nolove"
+      //未到價商品無庫存/下架的顯示
+      = render :partial => "module/2017/love_pd_nosold"
+      //收藏商品沒有在任何平台賣的顯示
+      = render :partial => "module/2017/ring_pd_allnosold"
+      //收藏商品的顯示
+      .ringing-pd
+        .wrap
+          .face.front
+            .notice-switch
+              %input#switch-id8{:type => "checkbox"}/
+              %label.label-switch{:for => "switch-id8"}
+            .pd-img
+              %img{:src=>"style/images/pd-img.jpg"}
+            %a.icon.icon-delete
+            %a.pd-info{:href=>""}
+              %span.pd-name APPLE iPhone 7 Plus 32G智慧型手機
+              %span.platform-price
+                %span.platform-name FriDay購物
+                %span.pd-price 31,900
+            %a.ringing-info.icon.icon-bell-line{:href=>""}
+              %span.info-text 尚未設定降價提醒
+          .face.back
+            .price-setting
+              %span.current-price 目前價格
+              %span.current-price-num 31,900
+              %span.expect-price 期望價格
+              %span.input-price
+                %input.input-price-num{:type=>"text",:value=>"31,899"}
+                %span.note-word 請輸入期望價格
+                %span.error-word 設定價格請低於目前價格
+              %button.btn-disount -
+              %span.discount-area 自訂
+              %button.btn-disount.disabled +
+            .notice-setting
+              %span.notice-text 提醒方式
+              %span.email-way
+                %label.control.control-checkbox
+                  %span.email-title email
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-email{:placeholder => "請輸入您的email", :type => "text"}/
+                %span.error-word email格式不正確
+              %span.phone-way
+                %label.control.control-checkbox
+                  %span.email-title 簡訊
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-phone{:placeholder => "請輸入您的手機號碼", :type => "text"}/
+                %span.error-word 手機格式不正確
+            %button.flipback.btn-saved.disabled 儲存
+      .ringing-pd
+        .wrap
+          .face.front
+            .notice-switch
+              %input#switch-id9{:type => "checkbox"}/
+              %label.label-switch{:for => "switch-id9"}
+            .pd-img
+              %img{:src=>"style/images/pd-img2.jpg"}
+            %a.icon.icon-delete
+            %a.pd-info{:href=>""}
+              %span.pd-name New Balance 休閒鞋 373 運動 女鞋
+              %span.platform-price
+                %span.platform-name Yahoo奇摩購物中心
+                %span.pd-price 2,780
+            %a.ringing-info.icon.icon-bell-line{:href=>""}
+              %span.info-text 尚未設定降價提醒
+          .face.back
+            .price-setting
+              %span.current-price 目前價格
+              %span.current-price-num 31,900
+              %span.expect-price 期望價格
+              %span.input-price
+                %input.input-price-num{:type=>"text",:value=>"31,899"}
+                %span.note-word 請輸入期望價格
+                %span.error-word 設定價格請低於目前價格
+              %button.btn-disount -
+              %span.discount-area 自訂
+              %button.btn-disount.disabled +
+            .notice-setting
+              %span.notice-text 提醒方式
+              %span.email-way
+                %label.control.control-checkbox
+                  %span.email-title email
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-email{:placeholder => "請輸入您的email", :type => "text"}/
+                %span.error-word email格式不正確
+              %span.phone-way
+                %label.control.control-checkbox
+                  %span.email-title 簡訊
+                  %input{:type => "checkbox"}/
+                  %span.control-indicator
+                %input.input-phone{:placeholder => "請輸入您的手機號碼", :type => "text"}/
+                %span.error-word 手機格式不正確
+            %button.flipback.btn-saved.disabled 儲存
